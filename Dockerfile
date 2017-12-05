@@ -17,6 +17,9 @@ RUN apt-get update \
     php7.1-mcrypt \
     php7.1-opcache \
     php7.1-zip \
+    ssmtp \
+    && echo "FromLineOverride=YES" >> /etc/ssmtp/ssmtp.conf\
+    && echo 'sendmail_path = "/usr/sbin/ssmtp -t"' > /usr/local/etc/php/conf.d/mail.ini\
     && apt-get clean; rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /usr/share/doc/*
 
 RUN usermod -u 1000 www-data
