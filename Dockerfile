@@ -26,7 +26,7 @@ RUN usermod -u 1000 www-data
 
 ENV BITRIX_MAIL_HOST=mail
 
-COPY ./docker-entrypoint.sh /
-ENTRYPOINT ["/docker-entrypoint.sh"]
+COPY ./entrypoint.sh /
+ENTRYPOINT ["/entrypoint.sh"]
 
 EXPOSE 9000
