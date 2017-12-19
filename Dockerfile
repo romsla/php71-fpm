@@ -24,4 +24,9 @@ RUN apt-get update \
 
 RUN usermod -u 1000 www-data
 
+ENV BITRIX_MAIL_HOST=mail
+
+COPY ./docker-entrypoint.sh /
+ENTRYPOINT ["/docker-entrypoint.sh"]
+
 EXPOSE 9000
